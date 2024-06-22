@@ -9,6 +9,6 @@ impl Animal {
     }
 }
 
-fn methods() {
+pub fn run() {
     
 }

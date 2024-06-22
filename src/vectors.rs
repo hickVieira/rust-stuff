@@ -1,4 +1,4 @@
-fn vectors() {
+pub fn run() {
     // calling Vec::new()
     let mut vec = Vec::<i32>::new();
     let mut vec = Vec::new();

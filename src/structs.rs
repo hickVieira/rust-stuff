@@ -12,7 +12,7 @@ struct float2(f32, f32);
 struct float3(f32, f32, f32);
 struct NoDataStruct;
 
-fn structs() {
+pub fn run() {
     let s = String::from("Hello world"); // static methods use ::
     let s_len = s.len(); // instance methods use .
 

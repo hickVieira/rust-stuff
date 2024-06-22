@@ -1,7 +1,7 @@
 const PI: f32 = 3.14159;
 const GOLDEN_RATIO: f32 = 1.618_033_988_75;
 
-fn types() {
+pub fn run() {
     // variables
     let x = 1;
     let x = 1u32;

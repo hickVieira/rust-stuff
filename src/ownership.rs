@@ -28,7 +28,7 @@ struct Bar<'a> {
     bar: &'a i32,
 }
 
-fn ownership() {
+pub fn run() {
     // binding instance of foo
     let mut foo = Foo { bar: 10 };
 

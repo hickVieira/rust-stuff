@@ -32,7 +32,7 @@ struct SeaCreature {
     weapon: Weapon,
 }
 
-fn enums() {
+pub fn run() {
     let Ferris = SeaCreature {
         species: Species::Crab,
         names: String::from("Ferris"),

@@ -2,7 +2,7 @@ struct Something<T> {
     item: Option<T>,
 }
 
-fn generics() -> Result<(), String> {
+pub fn run() -> Result<(), String> {
     let something_u32 = Something::<i32> { item: Some(1) };
     let something_string = Something::<String> {
         item: Some(String::from("hello")),

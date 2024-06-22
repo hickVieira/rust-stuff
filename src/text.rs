@@ -1,4 +1,4 @@
-fn text() {
+pub fn run() {
     // raw strings like these are always &'static str - utf-8 encoded
     let msg: &'static str = "Hello World";
     let msg = "Ferris says:\t\"Hello\"\n";

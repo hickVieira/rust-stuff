@@ -7,7 +7,7 @@ fn func_returns_something_or_fail(i: i32) -> Result<i32, String> {
     }
 }
 
-fn error_handling() -> Result<(), String> {
+pub fn run() -> Result<(), String> {
     // equivalent code - used when error is acceptable
     let res = func_returns_something_or_fail(0)?;
     let res = match func_returns_something_or_fail(0) {
