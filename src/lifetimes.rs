@@ -1,27 +1,28 @@
-struct Bar<'a> {
+struct Foo<'a> {
     bar: &'a i32,
 }
 
-struct Foo<'a> {
-    bar: &'a Bar<'a>,
+fn single_lifetime<'a>(foo: &'a Foo) -> &'a i32 {
+    return &foo.bar;
 }
 
-fn func<'a>(x: &'a mut i32) -> &'a i32 {
-    *x = 25;
-    return x;
+fn multiple_lifetimes<'a, 'b>(fooa: &'a Foo, foob: &'b Foo) -> &'b i32 {
+    println!("{} {}", fooa.bar, foob.bar);
+    return &foob.bar;
 }
 
 pub fn run() {
     // lifetime annotations
-    let x = 10;
-    let bar = Bar { bar: &x };
-    let foo = Foo { bar: &bar };
-    let mut x: i32 = 10;
-    let a = func(&mut x);
+    let bar = 10;
+    let fooa = Foo { bar: &bar };
+    let foob = Foo { bar: &bar };
 
-    println!("{}", a);
-
-    // static lifetimes
+    let c = single_lifetime(&fooa);
+    let m = multiple_lifetimes(&fooa, &foob);
+    // fooa gets dropped
+    print!("{}", foob.bar);
+    // bar gets dropped
+    // foob gets dropped
 
     // static variables are compile-time memory resource
     static SECRET: &str = "a compile-time static string";
@@ -36,5 +37,5 @@ pub fn run() {
 
     // lifetime inside data types
     let x = 45;
-    let bar = Bar { bar: &x };
+    let bar = Foo { bar: &x };
 }
