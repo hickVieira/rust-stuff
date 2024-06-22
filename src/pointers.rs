@@ -18,4 +18,12 @@ pub fn run() {
 
     println!("{}", *bar);
     println!("{}", foo.bar);
+
+    // reference to number
+    let number = 32;
+    let number_ref = &number;
+
+    // copy value of number to x
+    let mut x = *number_ref;
+    x = 10;
 }
