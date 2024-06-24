@@ -12,6 +12,7 @@ mod ownership;
 mod pointers;
 mod structs;
 mod text;
+mod traits;
 mod types;
 mod vectors;
 
@@ -28,6 +29,7 @@ fn main() {
     pointers::run();
     structs::run();
     text::run();
+    traits::run();
     types::run();
     vectors::run();
 }
