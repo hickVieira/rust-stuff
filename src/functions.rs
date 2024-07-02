@@ -16,6 +16,31 @@ fn nothing1() {
 
 fn nothing2() {}
 
+trait MyTrait {
+    fn MyMethod(&self) -> &String;
+}
+
+fn generic_function<T>(trait_object: T)
+where
+    T: MyTrait,
+{
+    println!("This is a generic function {}", trait_object.MyMethod());
+}
+
+fn generic_function_shorthand1<T: MyTrait>(trait_object: T) {
+    println!(
+        "This is a generic function shorthand {}",
+        trait_object.MyMethod()
+    );
+}
+
+fn generic_function_shorthand2(trait_object: impl MyTrait) {
+    println!(
+        "This is a generic function shorthand {}",
+        trait_object.MyMethod()
+    );
+}
+
 pub fn run() {
     let x = add(1, 2);
     let y = subtract(2, 1);
