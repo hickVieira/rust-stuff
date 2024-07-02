@@ -1,5 +1,6 @@
 #![allow(dead_code)] // this line prevents compiler warnings
 
+mod boxing;
 mod dispatch;
 mod enums;
 mod error_handling;
@@ -18,6 +19,7 @@ mod types;
 mod vectors;
 
 fn main() {
+    boxing::run();
     dispatch::run();
     enums::run();
     error_handling::run().unwrap();
