@@ -16,8 +16,7 @@ fn nothing1() {
 
 fn nothing2() {}
 
-pub fn run()
-{
+pub fn run() {
     let x = add(1, 2);
     let y = subtract(2, 1);
     let z = swap(1, 2);
