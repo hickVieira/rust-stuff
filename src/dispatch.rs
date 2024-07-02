@@ -8,12 +8,12 @@ impl Person {
     }
 }
 
-trait Named {
-    fn name(&self) -> &String;
+trait MyTrait {
+    fn MyMethod(&self) -> &String;
 }
 
-impl Named for Person {
-    fn name(&self) -> &String {
+impl MyTrait for Person {
+    fn MyMethod(&self) -> &String {
         &self.name
     }
 }
@@ -21,12 +21,37 @@ impl Named for Person {
 // -----------------------------------
 
 fn print_person(person: &Person) {
-    println!("This is {}", person.name);
+    println!("This is a raw object {}", person.name);
 }
 
-fn print_named(named: &dyn Named) {
-    println!("This is a trait object, named {} as a Named", named.name());
+fn print_named(trait_object: &dyn MyTrait) {
+    println!("This is a trait object {}", trait_object.MyMethod());
 }
+
+// -----------------------------------
+
+fn generic_function<T>(trait_object: T)
+where
+    T: MyTrait,
+{
+    println!("This is a generic function {}", trait_object.MyMethod());
+}
+
+fn generic_function_shorthand1<T: MyTrait>(trait_object: T) {
+    println!(
+        "This is a generic function shorthand {}",
+        trait_object.MyMethod()
+    );
+}
+
+fn generic_function_shorthand2(trait_object: impl MyTrait) {
+    println!(
+        "This is a generic function shorthand {}",
+        trait_object.MyMethod()
+    );
+}
+
+// -----------------------------------
 
 pub fn run() {
     let person = Person::new(String::from("John"));
