@@ -1,5 +1,6 @@
 #![allow(dead_code)] // this line prevents compiler warnings
 
+mod dispatch;
 mod enums;
 mod error_handling;
 mod flow;
@@ -17,6 +18,7 @@ mod types;
 mod vectors;
 
 fn main() {
+    dispatch::run();
     enums::run();
     error_handling::run().unwrap();
     flow::run();

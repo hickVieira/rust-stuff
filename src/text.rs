@@ -31,7 +31,7 @@ pub fn run() {
         let second_word = &a[3..7]; // [>= 3 < 7] - jumps space
 
         // Rust does not accept slices of invalid unicode characters
-        let half_crab = &a[3..5]; // FAILS
+        // let half_crab = &a[3..5]; // FAILS
     }
 
     // chars
