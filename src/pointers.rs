@@ -26,4 +26,21 @@ pub fn run() {
     // copy value of number to x
     let mut x = *number_ref;
     x = 10;
+
+    // raw pointers
+    let mut num: i32 = 10;
+    let memloc_const = &num as *const i32 as usize;
+    let memloc_mut = &mut num as *mut i32;
+
+    // dereferencing
+    let num: i32 = 10;
+    let num_ref_ref_ref: &&&i32 = &&&num;
+    let num_ref_ref: &i32 = **num_ref_ref_ref;
+    let num: i32 = *num_ref_ref;
+
+    // auto dereference using .
+    let foo = Foo { bar: 10 };
+    let foo_ref_ref_ref = &&&foo;
+    let bar = foo_ref_ref_ref.bar;
+    let bar = (***foo_ref_ref_ref).bar;
 }
