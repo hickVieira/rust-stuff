@@ -12,6 +12,7 @@ mod math;
 mod methods;
 mod ownership;
 mod pointers;
+mod smart_pointers;
 mod structs;
 mod text;
 mod traits;
@@ -31,6 +32,7 @@ fn main() {
     methods::run();
     ownership::run();
     pointers::run();
+    smart_pointers::run();
     structs::run();
     text::run();
     traits::run();
