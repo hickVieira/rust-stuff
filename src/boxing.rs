@@ -31,6 +31,7 @@ pub fn run() {
     let person = Person {
         name: "John".to_string(),
     };
+    
     let car = Car {
         name: "Ford".to_string(),
     };
