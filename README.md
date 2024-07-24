@@ -1,5 +1,6 @@
 Rust Playground
 
+- [ ] finish tour
 - [x] data types
 - [x] control flow
 - [x] functions
@@ -11,7 +12,14 @@ Rust Playground
 - [x] traits
 - [x] generics
 - [x] pointers
+- [x] boxing
 - [ ] malloc
 - [x] ownership
 - [x] lifetimes
 - [x] error handling
+- [ ] clojures
+- [ ] async
+- [x] jobsys
+- [x] rayon
+- [x] tokio
+- [ ] crossbeam

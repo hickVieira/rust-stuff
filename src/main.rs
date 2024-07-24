@@ -15,27 +15,30 @@ mod pointers;
 mod smart_pointers;
 mod structs;
 mod text;
+mod threading;
 mod traits;
 mod types;
 mod vectors;
 
-fn main() {
-    boxing::run();
-    dispatch::run();
-    enums::run();
-    error_handling::run().unwrap();
-    flow::run();
-    functions::run();
-    generics::run().unwrap();
-    lifetimes::run();
-    math::run();
-    methods::run();
-    ownership::run();
-    pointers::run();
-    smart_pointers::run();
-    structs::run();
-    text::run();
-    traits::run();
-    types::run();
-    vectors::run();
+#[tokio::main]
+async fn main() {
+    // boxing::run();
+    // dispatch::run();
+    // enums::run();
+    // error_handling::run().unwrap();
+    // flow::run();
+    // functions::run();
+    // generics::run().unwrap();
+    // lifetimes::run();
+    // math::run();
+    // methods::run();
+    // ownership::run();
+    // pointers::run();
+    // smart_pointers::run();
+    // structs::run();
+    // text::run();
+    threading::run().await;
+    // traits::run();
+    // types::run();
+    // vectors::run();
 }
