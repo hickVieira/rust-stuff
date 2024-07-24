@@ -1,7 +1,8 @@
 use jobsys;
 use rayon::prelude::*;
+use tinyrand::{Rand, Wyrand};
 
-const ARRAY_SIZE: usize = 1024 * 1024 * 256;
+const ARRAY_SIZE: usize = 1024 * 1024 * 32;
 
 fn jobsys_for_each(thread_count: usize, job_capacity: usize) {
     let job_system = jobsys::JobSystem::new(thread_count, job_capacity).unwrap();
@@ -12,7 +13,7 @@ fn jobsys_for_each(thread_count: usize, job_capacity: usize) {
     job_scope
         .for_each(&mut array, |slice: &mut [u32], _start, _end| {
             for i in 0..slice.len() {
-                slice[i] = rand::random::<u32>();
+                slice[i] = Wyrand::default().next_u32();
             }
         })
         .expect("Failed to run jobs");
@@ -33,7 +34,7 @@ pub async fn run() {
 
         let timer = std::time::Instant::now();
         for i in 0..ARRAY_SIZE {
-            array[i] = rand::random::<u32>();
+            array[i] = Wyrand::default().next_u32();
         }
         let duration = timer.elapsed();
 
@@ -45,7 +46,9 @@ pub async fn run() {
         let mut array = vec![0u32; ARRAY_SIZE];
 
         let timer = std::time::Instant::now();
-        array.iter_mut().for_each(|i| *i = rand::random::<u32>());
+        array
+            .iter_mut()
+            .for_each(|i| *i = Wyrand::default().next_u32());
         let duration = timer.elapsed();
 
         println!("iter_mut : {}ms", duration.as_millis());
@@ -57,7 +60,7 @@ pub async fn run() {
 
         let timer = std::time::Instant::now();
         array.par_iter_mut().for_each(|i| {
-            *i = rand::random::<u32>();
+            *i = Wyrand::default().next_u32();
         });
         let duration = timer.elapsed();
 
@@ -70,7 +73,9 @@ pub async fn run() {
 
         let timer = std::time::Instant::now();
         let task = tokio::task::spawn_blocking(move || {
-            array.iter_mut().for_each(|i| *i = rand::random::<u32>());
+            array
+                .iter_mut()
+                .for_each(|i| *i = Wyrand::default().next_u32());
         });
         task.await.unwrap();
         let duration = timer.elapsed();
@@ -84,7 +89,9 @@ pub async fn run() {
 
         let timer = std::time::Instant::now();
         tokio::task::spawn(async move {
-            array.iter_mut().for_each(|i| *i = rand::random::<u32>());
+            array
+                .iter_mut()
+                .for_each(|i| *i = Wyrand::default().next_u32());
         })
         .await
         .unwrap();
