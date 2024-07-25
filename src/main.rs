@@ -20,8 +20,7 @@ mod traits;
 mod types;
 mod vectors;
 
-#[tokio::main]
-async fn main() {
+fn main() {
     // boxing::run();
     // dispatch::run();
     // enums::run();
@@ -37,7 +36,7 @@ async fn main() {
     // smart_pointers::run();
     // structs::run();
     // text::run();
-    threading::run().await;
+    threading::run();
     // traits::run();
     // types::run();
     // vectors::run();
