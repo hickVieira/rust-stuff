@@ -20,6 +20,9 @@ Rust Playground
 - [ ] clojures
 - [ ] async
 - [x] jobsys
-- [x] rayon
+- [x] threadpool
+- [x] simple_parallel
 - [x] tokio
-- [ ] crossbeam
+- [x] rayon
+- [x] crossbeam
+- [x] std::thread
