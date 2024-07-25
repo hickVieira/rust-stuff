@@ -1,6 +1,6 @@
 use rayon::prelude::*;
 
-const ARRAY_SIZE: usize = 1024 * 1024 * 1;
+const ARRAY_SIZE: usize = 1024 * 1024 * 32;
 
 fn crossbeam_spawn(chunk_count: usize) {
     let mut array = vec![0u8; ARRAY_SIZE];
@@ -111,6 +111,8 @@ pub fn run() {
         crossbeam_spawn(128);
         crossbeam_spawn(256);
         crossbeam_spawn(512);
+        crossbeam_spawn(1024);
+        crossbeam_spawn(2048);
     }
 
     // rayon manual spawn
@@ -125,6 +127,8 @@ pub fn run() {
         rayon_spawn(128);
         rayon_spawn(256);
         rayon_spawn(512);
+        rayon_spawn(1024);
+        rayon_spawn(2048);
     }
 
     // std thread spawn
@@ -139,5 +143,7 @@ pub fn run() {
         std_thread_spawn(128);
         std_thread_spawn(256);
         std_thread_spawn(512);
+        std_thread_spawn(1024);
+        std_thread_spawn(2048);
     }
 }
