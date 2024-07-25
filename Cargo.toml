@@ -6,6 +6,7 @@ include = ["src/*.rs", "src/*.txt"]
 
 [dependencies]
 crossbeam = "0.8.4"
+crossbeam-utils = "0.8.20"
 jobsys = "0.2.0"
 rand = "0.8.5"
 rayon = "1.10.0"
